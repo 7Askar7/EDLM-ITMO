@@ -1,0 +1,36 @@
+# LSTM Configuration
+
+# Model parameters
+model:
+  vocab_size: 20000
+  embedding_dim: 128
+  hidden_dim: 256
+  num_layers: 2
+  dropout: 0.5
+  bidirectional: true
+
+# Data parameters
+data:
+  max_len: 256
+  batch_size: 64
+  num_workers: 4
+  use_real_data: true  # Use real IMDB dataset
+  num_samples: 5000  # for synthetic data (not used when use_real_data=true)
+
+# Training parameters
+training:
+  epochs: 50  # Increased to match other models
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  use_amp: false
+  save_every: 5
+
+# Quantization parameters
+quantization:
+  method: lsq  # none, lsq, pact
+  bit_width: 8
+
+# Paths
+paths:
+  data_dir: ./data/imdb
+  save_dir: ./results/lstm

@@ -1,0 +1,4 @@
+# ONNX Runtime and dependencies for INT8 inference
+onnx>=1.14.0
+onnxruntime>=1.16.0
+scikit-learn>=1.3.0  # For ROC-AUC calculation

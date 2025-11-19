@@ -1,0 +1,34 @@
+# ESPCN Configuration
+
+# Model parameters
+model:
+  upscale_factor: 3
+  num_channels: 3
+  feature_channels: 64
+
+# Data parameters
+data:
+  patch_size: 96  # Increased for DIV2K (higher quality)
+  batch_size: 16
+  num_workers: 4
+  use_real_data: true  # Use real DIV2K dataset
+  num_train: 1000  # for synthetic data (not used when use_real_data=true)
+  num_test: 200
+
+# Training parameters
+training:
+  epochs: 50
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  use_amp: false
+  save_every: 10
+
+# Quantization parameters
+quantization:
+  method: lsq  # none, lsq, pact
+  bit_width: 8
+
+# Paths
+paths:
+  data_dir: ./data/DIV2K  # Changed from BSD to DIV2K
+  save_dir: ./results/espcn
